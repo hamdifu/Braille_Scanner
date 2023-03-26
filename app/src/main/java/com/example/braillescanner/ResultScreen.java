@@ -1,4 +1,7 @@
 package com.example.braillescanner;
 
-public class ResultScreen {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ResultScreen extends AppCompatActivity {
+
 }

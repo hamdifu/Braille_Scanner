@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
     Button startbutton;
+
+    Uri uri;
     ActivityResultLauncher<String> img;
 
     @Override
@@ -45,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onActivityResult(Uri result) {
 
-                        imageView.setImageURI(result);
+                        //imageView.setImageURI(result);
+                        uri=result;
+                        Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                        intent.putExtra("img",uri);
+                        startActivity(intent);
                     }
                 }
         );
@@ -53,12 +59,15 @@ public class MainActivity extends AppCompatActivity {
         startbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                img.launch("image/*");
 //                Intent intent=new Intent((MediaStore.ACTION_IMAGE_CAPTURE));
 //                startActivityForResult(intent,101);
+                img.launch("image/*");
+
+
             }
         });
+
+
     }
 
 //    @Override
